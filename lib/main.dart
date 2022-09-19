@@ -219,8 +219,11 @@ class BeritaKecil extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
               ),
-                child: const Text("Pique Bilang Wasit Untungkan Madrid, Koeman Tepok Jidat", 
-                  textAlign: TextAlign.left),
+                child: const Text("Pique Bilang Wasit Untungkan Madrid, Koeman Tepok Jidat",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 12
+                  ),),
               ),
               ),
             ], 
