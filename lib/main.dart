@@ -35,15 +35,47 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: 
-        ListView(
-          children: const <Widget>[
+        Column(
+          children:  const <Widget>[
             Button(),
             BeritaBesar(),
-            BeritaKecil(),
-            BeritaKecil(),
-            BeritaKecil(),
+            Expanded(child: Scroll()),
           ],
-        ),
+        ),    
+    );
+  }
+}
+
+class Scroll extends StatelessWidget {
+  const Scroll({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(8.0),
+      child: LayoutBuilder(
+        builder: (BuildContext context,
+            BoxConstraints viewportConstraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: viewportConstraints.maxHeight,
+              ),
+              child: IntrinsicHeight(
+                child: Column(
+                  children: const <Widget>[
+                    BeritaKecil(),
+                    BeritaKecil(),
+                    BeritaKecil(),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
